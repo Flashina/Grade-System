@@ -6,23 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade</title>
     <link rel="stylesheet" href="bootstrap-5.2.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="grade.css">
 </head>
 <body>
     <div class="container p-5 m-5">
         <div class=" col-12 col-md-6 sahdow mx-auto">
-            <div class="shadow p-5 border border-warning rounded">
+            <div class="shadow p-5 border border-warning rounded" id="div2">
                 <h1 class="text-center text-muted mx-auto mb-4">Grading System</h1>
                 <input type="text" class="form-control shadow" placeholder="Enter your score" id="scoreInp">
                 <div class="">
                     <div class="col-12 col-md-4 shadow mx-auto">
                         <button class="btn btn-outline-warning p-2 m-3" onclick="grade()">Check Score</button> 
                     </div>
-                    <hr class="shadow">
+                    <hr class="shadow bolder">
                     <div id="disp"></div>
                     <div class="mx-auto col-6">
                         <img src="/Grade/neutral.gif" width="200px" alt="" id="emoji">
                     </div>
-                    <hr class="shadow">
+                    <hr class="shadow bolder">
                 </div>
             </div>
         </div>
@@ -91,7 +92,7 @@
             //     alert("Pls Enter Your Score")
             // }
             else{
-                disp.innerHTML = (`<h4>Invalid</h4>`)
+                disp.innerHTML = (`<h4>Invalid Score</h4>`)
                 document.getElementById("emoji").src = "./neutral.gif"
                 invalid.play()
                 disp.style.color = "red"
