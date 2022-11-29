@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade</title>
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container p-5 m-5">
+        <div class=" col-12 col-md-6 sahdow mx-auto">
+            <div class="shadow p-5 border border-warning rounded">
+                <h1 class="text-center text-muted mx-auto mb-4">Grading System</h1>
+                <input type="text" class="form-control shadow" placeholder="Enter your score" id="scoreInp">
+                <div class="">
+                    <div class="col-12 col-md-4 shadow mx-auto">
+                        <button class="btn btn-outline-warning p-2 m-3" onclick="grade()">Check Score</button> 
+                    </div>
+                    <hr class="shadow">
+                    <div id="disp"></div>
+                    <div class="mx-auto col-6">
+                        <img src="/Grade/neutral.gif" width="200px" alt="" id="emoji">
+                    </div>
+                    <hr class="shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function grade(){
+        var gradeA = new Audio("audienceclapping.wav")
+        var gradeB = new Audio("applause.mp3")
+        var gradeC = new Audio("MockingLaughter.mp3")
+        var gradeD = new Audio("There's nothing.m4A")
+        var gradeE = new Audio("Isubu.mp3")
+        var gradeF = new Audio("Failure.m4A")
+        var invalid = new Audio("wahala.mp3")
+
+            var score = scoreInp.value
+            if(score >= 0 && score <= 39){
+                // alert("Fail (F)")
+                disp.innerHTML = (`<h4>Your Score is  ${ score +(": Fail (F)")}</h4>`)
+                document.getElementById("emoji").src = "./angry.gif"
+                gradeF.play()
+                disp.style.color = "red"
+         w   }
+            else if (score >= 40 && score <= 44){
+                // alert()
+                disp.innerHTML = (`<h4>Your Score is  ${ score +(": Narrow Escape (E)")}</h4>`)
+                document.getElementById("emoji").src = "./angry.gif"
+                gradeE.play()
+            disp.style.color = "red"
+            }
+            else if(score >= 45 && score <= 49){
+                // alert("")
+                disp.innerHTML = (`<h4>Your Score is ${ score + (": Pass (D)")}</h4>`)
+                document.getElementById("emoji").src = "./pass.gif"
+                gradeD.play()
+                disp.style.color = "yellow"
+                disp.style.backgroundcolor = "black"
+
+
+            }
+            else if(score >= 50 && score <= 59){
+                // alert("")
+                disp.innerHTML = (`<h4>Your Score is ${ score + (": Satisfactory (C)")}</h4>`)
+                document.getElementById("emoji").src = "./credit.gif"
+                gradeC.play()
+                disp.style.color = "skyblue"
+                disp.style.backgroundcolor = "black"
+            }
+            else if(score >= 60 && score <= 69){
+                // alert("")
+                disp.innerHTML = (`<h4>Your Score is ${ score + (": V. Good (B)")}</h4>`)
+                document.getElementById("emoji").src = "./good.gif"
+                gradeB.play()
+                disp.style.color = "blue"
+                disp.style.backgroundcolor = "black"
+            }
+            else if(score >= 70 && score <= 100){
+                // alert("")
+                disp.innerHTML = (`<h4>Your Score is ${ score + (": Excllence (A)")}</h4>`)
+                document.getElementById("emoji").src = "./very-good.gif"
+                gradeA.play()
+                disp.style.color = "green"
+                disp.style.backgroundcolor = "black"
+            }
+            // else if(score == ""){
+            //     alert("Pls Enter Your Score")
+            // }
+            else{
+                disp.innerHTML = (`<h4>Invalid</h4>`)
+                document.getElementById("emoji").src = "./neutral.gif"
+                invalid.play()
+                disp.style.color = "red"
+                disp.style.backgroundcolor = "black"
+        }
+        }
+</script>
+</html>
